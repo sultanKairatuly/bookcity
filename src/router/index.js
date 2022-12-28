@@ -1,20 +1,51 @@
 import { createRouter, createWebHistory } from "vue-router";
-import HomeView from "../views/HomeView.vue";
+
+import HomePage from "../pages/HomePage";
+import AboutPage from "../pages/AboutPage";
+import PaymentAndDelivery from "../pages/PaymentAndDelivery";
+import Contacts from "../pages/Contacts";
+import BookCategory from "../components/BookCategory";
+import FavouritePage from "../components/Favourite";
+import BookSubcategory from "../components/BookSubcategory";
+import Basket from "../components/Basket";
+import BookPage from "../components/BookPage";
 
 const routes = [
   {
     path: "/",
-    name: "home",
-    component: HomeView,
+    component: HomePage,
   },
   {
     path: "/about",
-    name: "about",
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: () =>
-      import(/* webpackChunkName: "about" */ "../views/AboutView.vue"),
+    component: AboutPage,
+  },
+  {
+    path: "/delivery",
+    component: PaymentAndDelivery,
+  },
+  {
+    path: "/contacts",
+    component: Contacts,
+  },
+  {
+    path: "/catalogs/:catalogName",
+    component: BookCategory,
+  },
+  {
+    path: "/catalogs/:catalogName/:subcatalogName/:page",
+    component: BookSubcategory,
+  },
+  {
+    path: "/favourite",
+    component: FavouritePage,
+  },
+  {
+    path: "/basket",
+    component: Basket,
+  },
+  {
+    path: "/:catalogName/:bookId",
+    component: BookPage,
   },
 ];
 
