@@ -205,13 +205,12 @@ export default {
   flex-wrap: wrap;
   justify-content: flex-start;
   margin-bottom: 50px;
-  width: 900px;
 }
 
 .favourite_content {
   padding-top: 80px;
   margin: 0 auto;
-  width: 896px;
+  width: 100%;
 }
 
 .book {
@@ -248,35 +247,6 @@ export default {
   margin-top: 10px;
   font-weight: 700;
 }
-
-/* .book:nth-child(4) {
-  border-right: none;
-}
-
-.book:nth-child(8) {
-  border-right: none;
-}
-
-.book:nth-child(12) {
-  border-right: none;
-}
-
-.book:nth-child(16) {
-  border-right: none;
-}
-.book:nth-child(20) {
-  border-right: none;
-}
-.book:nth-child(24) {
-  border-right: none;
-}
-.book:nth-child(28) {
-  border-right: none;
-}
-
-.book:nth-child(32) {
-  border-right: none;
-} */
 
 .book-wrapper {
   position: absolute;
@@ -401,5 +371,203 @@ export default {
 }
 .big-instruction__image {
   margin-bottom: 30px;
+}
+
+.books-list {
+  justify-content: center;
+}
+
+.book {
+  width: 30%;
+  padding: 0 10px;
+}
+
+@media (max-width: 780px) {
+  .delete__text {
+    font-size: 12px;
+  }
+
+  .books-list {
+    border-top: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    margin-bottom: 50px;
+    width: 100%;
+  }
+
+  .book {
+    justify-content: center;
+    width: 224px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 0.5px solid #cfd3d5;
+    padding: 0 15px;
+    height: 390px;
+    position: relative;
+  }
+
+  .book__title {
+    font-weight: 700;
+    margin-top: 10px;
+    font-size: 14px;
+    text-align: center;
+    line-height: 18px;
+  }
+
+  .book__author {
+    color: #747474;
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+    text-transform: capitalize;
+  }
+
+  .book__price {
+    color: #ba2749;
+    text-align: center;
+    margin-top: 10px;
+    font-weight: 700;
+  }
+
+  .book-wrapper {
+    position: absolute;
+    width: 290px;
+    background-color: #fff;
+    left: -26px;
+    top: -18px;
+    display: none;
+    height: 450px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 500;
+    box-shadow: 0px 0px 13px 0px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    cursor: pointer;
+    z-index: 700;
+  }
+
+  .to-card {
+    background-color: #a62749;
+    color: #ffffff;
+    text-transform: uppercase;
+    padding: 12px 55px;
+    text-align: center;
+    font-size: 14px;
+    margin-right: 5px;
+    cursor: pointer;
+    transition: 0.2s linear;
+  }
+
+  .to-card:hover {
+    background-color: #751f36;
+  }
+  .active {
+    display: flex;
+  }
+  .to-favourite {
+    cursor: pointer;
+    height: 41px;
+    font-size: 25px;
+    padding: 5px 10px;
+    border: 1px solid #cfd3d5;
+    width: fit-content;
+  }
+
+  .heart {
+    transition: 0.2s ease-in-out;
+    color: #cfd3d5;
+  }
+
+  .heart:hover {
+    color: #a62749;
+  }
+
+  .added {
+    color: #a62749;
+  }
+  .title {
+    padding: 20px 30px;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-family: "Noto Serif", sans-serif;
+    background-color: #f7f8f9;
+    border: 1px solid #cfd3d5;
+  }
+
+  .none-products__text {
+    margin-top: 35px;
+    margin-bottom: 20px;
+    line-height: 35px;
+  }
+  .none-products__text-item {
+    font-size: 13px;
+  }
+
+  .instruction {
+    width: 100%;
+  }
+  .instruction__item-image {
+    width: 100%;
+  }
+  .instruction__item-title {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+  .extra {
+    font-size: 14px;
+    line-height: 20px;
+    letter-spacing: 2px;
+  }
+
+  .discount {
+    width: 53px;
+    height: 53px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ee1e45;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .book__status {
+    position: absolute;
+    top: -35px;
+    left: -35px;
+    display: flex;
+    align-items: center;
+  }
+
+  .book-link {
+    position: relative;
+  }
+
+  .big-instruction__title {
+    text-align: center;
+    padding: 20px;
+    font-size: 13px;
+  }
+  .big-instruction__image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 500px) {
+  .instruction {
+    flex-direction: column;
+  }
+
+  .book {
+    width: 50%;
+  }
+
+  .none-products__text-item .extra {
+    font-size: 12px;
+  }
 }
 </style>

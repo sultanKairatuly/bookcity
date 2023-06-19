@@ -1,5 +1,5 @@
 <template>
-  <tab-item :products="products" />
+  <tab-item category="Bestsellers" :products="products" />
 </template>
 
 <script>

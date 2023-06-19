@@ -35,6 +35,34 @@
         </div>
       </div>
     </div>
+    <div class="bookcards-mobile">
+      <div
+        class="bookcard-mobile"
+        v-for="card in cards"
+        :key="card.id"
+        :style="{
+          width: card.width,
+          height: card.heigth,
+          backgroundImage: card.background,
+        }"
+        :class="{
+          bgCenter: card.top,
+          bordered: card.border,
+        }"
+      >
+        <h3 class="bookcard__title">{{ card.title }}</h3>
+        <div
+          class="bookcard__guide"
+          :class="{
+            flexCol: card.isFlex,
+          }"
+        >
+          <div class="guide__item" v-for="guide in card.subtitles" :key="guide">
+            {{ guide }}
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </template>
 
@@ -54,8 +82,7 @@ export default {
             "Детям о Казахстане",
           ],
           top: true,
-          width: "378px",
-          heigth: "550px",
+
           isFlex: true,
           background: `url(${require(`../assets/homePageCategories/my-kazakhstan-bg.png`)})`,
         },
@@ -70,8 +97,7 @@ export default {
             "Поэзия",
             "Foreign books",
           ],
-          width: "378px",
-          heigth: "457px",
+
           isFlex: false,
           background: `url(${require(`../assets/homePageCategories/hud-literatura-bg.png`)})`,
         },
@@ -80,8 +106,7 @@ export default {
           title: "Подарочные издания",
           border: false,
           subtitles: ["Подарочные и эксклюзивные книги"],
-          width: "380px",
-          heigth: "251px",
+
           isFlex: false,
           background: `url(${require(`../assets/homePageCategories/izdeliya.png`)})`,
         },
@@ -90,8 +115,7 @@ export default {
           title: "Эзотерика \n Психология \n Философия",
           border: true,
           subtitles: ["Психология", "Эзотерика", "Философия"],
-          width: "378px",
-          heigth: "364px",
+
           isFlex: false,
           background: `url(${require(`../assets/homePageCategories/philosophy.png`)})`,
         },
@@ -106,8 +130,7 @@ export default {
             "Игры. Пазлы. Наборы для творчества",
             "Педагогика. Образование",
           ],
-          width: "380px",
-          heigth: "459px",
+
           isFlex: false,
           background: `url(${require(`../assets/homePageCategories/kids-bg.png`)})`,
         },
@@ -120,8 +143,7 @@ export default {
             "Менеджмент. Маркетинг. Управление персоналом",
             "Практика бизнеса",
           ],
-          width: "378px",
-          heigth: "400px",
+
           isFlex: false,
           background: `url(${require(`../assets/homePageCategories/bussiness-bg.png`)})`,
         },
@@ -137,8 +159,7 @@ export default {
             "Комиксы",
           ],
           isFlex: true,
-          width: "380px",
-          heigth: "251px",
+
           background: `url(${require(`../assets/homePageCategories/others-bg.png`)})`,
         },
       ],
@@ -149,7 +170,6 @@ export default {
 
 <style scoped>
 .container {
-  max-width: 1200px;
   margin: 0 auto;
   margin-top: 40px;
 }
@@ -169,7 +189,6 @@ export default {
 }
 
 .bookcards__container {
-  width: 1200px;
   height: 1001px;
 }
 .bookcards {
@@ -193,32 +212,49 @@ export default {
   background-position: bottom right;
 }
 
+.bookcard:first-child {
+  width: 400px;
+  height: 600px;
+}
+
 .bookcard:nth-child(2) {
   left: 405px;
+  width: 400px;
+  height: 450px;
 }
 
 .bookcard:nth-child(3) {
   right: 0;
+  width: 375px;
+  height: 250px;
 }
 
 .bookcard:nth-child(4) {
   top: 570px;
   left: 0;
+  width: 400px;
+  height: 370px;
 }
 
 .bookcard:nth-child(5) {
   left: 405px;
   top: 477px;
+  width: 400px;
+  height: 460px;
 }
 
 .bookcard:nth-child(6) {
   right: 0;
   top: 271px;
+  width: 375px;
+  height: 400px;
 }
 
 .bookcard:nth-child(7) {
   right: 0;
   top: 685px;
+  width: 375px;
+  height: 250px;
 }
 
 .flexCol {
@@ -256,11 +292,292 @@ export default {
   display: inline-block;
 }
 
+.bookcards-mobile {
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+.bookcard-mobile {
+  background-repeat: no-repeat;
+  min-height: 200px;
+  background-size: contain;
+  background-position: center right;
+}
+
 .guide__item:hover {
   color: rgb(184, 23, 55);
 }
 
 .bgCenter {
   background-position: center 60px;
+}
+
+.bookcards-mobile {
+  display: none;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 100%;
+    margin-top: 30px;
+  }
+
+  .title {
+    margin-bottom: 25px;
+    font-size: 25px;
+  }
+
+  .bookcards__container {
+    width: 1100px;
+    height: 900px;
+    margin: 0 auto;
+  }
+  .bookcard {
+    padding: 25px;
+    margin: 5px;
+  }
+
+  .bookcard:first-child {
+    width: 370px;
+    height: 550px;
+  }
+
+  .bookcard:nth-child(2) {
+    left: 380px;
+    width: 370px;
+    height: 400px;
+  }
+
+  .bookcard:nth-child(3) {
+    right: 0;
+    width: 325px;
+    height: 200px;
+  }
+
+  .bookcard:nth-child(4) {
+    top: 515px;
+    left: 0;
+    width: 370px;
+    height: 340px;
+  }
+
+  .bookcard:nth-child(5) {
+    left: 380px;
+    top: 410px;
+    width: 370px;
+    height: 445px;
+  }
+
+  .bookcard:nth-child(6) {
+    right: 0;
+    top: 220px;
+    width: 330px;
+    height: 400px;
+  }
+
+  .bookcard:nth-child(7) {
+    right: 0;
+    top: 635px;
+    width: 330px;
+    height: 225px;
+  }
+
+  .bookcard__title {
+    font-size: 18px;
+  }
+
+  .guide__item {
+    font-size: 12px;
+    margin-bottom: 12px;
+    padding: 0 11px 0 13px;
+    max-width: 100px;
+  }
+
+  .guide__item::before {
+    content: "";
+    background-color: rgb(184, 23, 55);
+    width: 6px;
+    top: 5px;
+    height: 6px;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    display: inline-block;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 10px 0;
+    margin: 20px auto;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  .bookcards__container {
+    width: 900px;
+  }
+  .bookcard {
+    padding: 20px;
+    margin: 0px;
+  }
+
+  .bookcard:first-child {
+    width: 280px;
+  }
+
+  .bookcard:nth-child(2) {
+    left: 290px;
+    width: 280px;
+    height: 370px;
+  }
+
+  .bookcard:nth-child(3) {
+    right: 70px;
+    width: 230px;
+    height: 200px;
+  }
+
+  .bookcard:nth-child(4) {
+    top: 560px;
+    left: 0;
+    width: 280px;
+    height: 310px;
+  }
+
+  .bookcard:nth-child(5) {
+    left: 290px;
+    top: 380px;
+    width: 280px;
+    height: 485px;
+  }
+
+  .bookcard:nth-child(6) {
+    right: 50px;
+    top: 210px;
+    width: 235px;
+    height: 380px;
+  }
+
+  .bookcard:nth-child(7) {
+    right: 50px;
+    top: 635px;
+    width: 270px;
+    height: 200px;
+  }
+
+  .bookcard__title {
+    font-size: 16px;
+  }
+
+  .guide__item {
+    font-size: 10px;
+    margin-bottom: 6px;
+    padding: 0 5px 0 7px;
+    max-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .content {
+    height: auto;
+  }
+  .container {
+    margin-top: 30px;
+    margin-bottom: 0;
+  }
+  .title {
+    margin-bottom: 20px;
+    font-size: 18px;
+  }
+  .bookcards__container {
+    width: 700px;
+  }
+  .bookcard {
+    padding: 10px;
+    margin: 0px;
+  }
+
+  .bookcard:first-child {
+    width: 240px;
+  }
+
+  .bookcard:nth-child(2) {
+    left: 250px;
+    width: 240px;
+    height: 370px;
+  }
+
+  .bookcard:nth-child(3) {
+    right: 0px;
+    width: 190px;
+    height: 200px;
+  }
+
+  .bookcard:nth-child(4) {
+    top: 560px;
+    left: 0;
+    width: 240px;
+    height: 310px;
+  }
+
+  .bookcard:nth-child(5) {
+    left: 250px;
+    top: 380px;
+    width: 240px;
+    height: 485px;
+  }
+
+  .bookcard:nth-child(6) {
+    right: 0px;
+    top: 210px;
+    width: 195px;
+    height: 380px;
+  }
+
+  .bookcard:nth-child(7) {
+    right: 0px;
+    top: 615px;
+    width: 200px;
+    height: 250px;
+  }
+
+  .guide__item {
+    font-size: 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .container {
+    margin-top: 20px;
+  }
+  .title {
+    margin-bottom: 10px;
+    font-size: 16px;
+  }
+  .bookcards__container {
+    width: 100%;
+    height: auto;
+  }
+
+  .bookcards {
+    display: none;
+  }
+
+  .bookcards-mobile {
+    display: flex;
+  }
+  .bookcard {
+    padding: 5px;
+  }
+
+  .bookcard__guide {
+    padding: 30px;
+  }
+
+  .guide__item {
+    font-size: 12px;
+  }
 }
 </style>

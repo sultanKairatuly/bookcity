@@ -234,7 +234,6 @@ export default {
   margin: 35px 0;
 }
 .category-list {
-  width: 1200px;
   margin: 0 auto;
 }
 

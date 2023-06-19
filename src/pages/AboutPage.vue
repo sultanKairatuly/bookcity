@@ -201,7 +201,6 @@ export default {
 
 <style scoped>
 .container {
-  width: 1200px;
   margin: 0 auto;
 }
 .number {
@@ -337,5 +336,329 @@ export default {
 
 .reason-text {
   width: 440px;
+}
+
+@media (max-width: 1440px) {
+  .how-works__container {
+    padding: 70px 0;
+  }
+
+  .how-works__item-text {
+    font-size: 12px;
+  }
+  .main::before {
+    content: "";
+    width: 270px;
+    height: 220px;
+  }
+
+  .how-works__item {
+    width: 270px;
+    height: 180px;
+  }
+
+  .main__title {
+    font-size: 18px;
+    margin: 25px 0px 0px 100px;
+  }
+
+  .mini-book {
+    margin: 0 auto;
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .how-works__item {
+    padding: 15px;
+  }
+  .top {
+    margin-bottom: 20px;
+  }
+
+  .why-us {
+    padding: 50px 0 70px 0;
+    background-color: #f7f8f9;
+  }
+
+  .title {
+    font-size: 22px;
+    margin-bottom: 25px;
+  }
+  .info_item {
+    font-size: 18px;
+  }
+  .info_item {
+    margin-bottom: 40px;
+  }
+  .info_item-title {
+    margin-bottom: 15px;
+  }
+
+  .why-us__title {
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+
+  .doublecard {
+    column-gap: 25px;
+  }
+  .why-us__reasons {
+    padding: 20px;
+  }
+  .reason {
+    column-gap: 20px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .how-works__container {
+    padding: 55px 0;
+  }
+
+  .how-works__item-text {
+    font-size: 12px;
+  }
+  .main::before {
+    content: "";
+    width: 250px;
+    height: 220px;
+  }
+
+  .how-works__item {
+    width: 250px;
+    height: 180px;
+  }
+
+  .main__title {
+    font-size: 16px;
+    margin: 20px 0px 0px 80px;
+  }
+
+  .mini-book {
+    margin-bottom: 10px;
+  }
+
+  .how-works__item {
+    padding: 10px;
+  }
+  .top {
+    margin-bottom: 15px;
+  }
+
+  .why-us {
+    padding: 40px 0 60px 0;
+  }
+
+  .title {
+    font-size: 20px;
+    margin-bottom: 20px;
+  }
+  .info_item {
+    font-size: 16px;
+  }
+  .info_item {
+    margin-bottom: 35px;
+  }
+  .info_item-title {
+    margin-bottom: 10px;
+  }
+
+  .why-us__title {
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+
+  .doublecard {
+    column-gap: 20px;
+  }
+  .why-us__reasons {
+    padding: 15px;
+  }
+  .reason {
+    column-gap: 15px;
+  }
+}
+
+@media (max-width: 780px) {
+  .how-works__container {
+    padding: 55px 0;
+    width: 100%;
+  }
+
+  .how-works__item-text {
+    font-size: 10px;
+  }
+  .main::before {
+    content: "";
+    width: 250px;
+    height: 220px;
+  }
+
+  .how-works__item {
+    width: 50%;
+    height: 180px;
+  }
+
+  .main__title {
+    font-size: 14px;
+    margin: 15px 0px 0px 60px;
+  }
+
+  .mini-book {
+    margin-bottom: 5px;
+  }
+
+  .how-works__item {
+    padding: 5px;
+  }
+  .top {
+    margin-bottom: 10px;
+  }
+
+  .why-us {
+    padding: 30px 0 45px 0;
+  }
+
+  .title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .info_item {
+    font-size: 14px;
+  }
+  .info_item {
+    margin-bottom: 30px;
+  }
+  .info_item-title {
+    margin-bottom: 5px;
+  }
+
+  .why-us__title {
+    margin-bottom: 10px;
+    font-size: 17px;
+  }
+
+  .doublecard {
+    column-gap: 10px;
+    flex-direction: column;
+  }
+
+  .why-us__reasons {
+    padding: 10px;
+  }
+  .reason {
+    column-gap: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .how-works__container {
+    flex-direction: column;
+    padding: 30px 0;
+    width: 100%;
+  }
+
+  .how-works__item-text {
+    font-size: 18px;
+  }
+  .main::before {
+    content: "";
+    width: 200px;
+    height: 120px;
+  }
+
+  .how-works__item {
+    width: 100%;
+    height: 180px;
+  }
+
+  .main__title {
+    font-size: 12px;
+    margin: 10px 0px 0px 40px;
+  }
+
+  .mini-book {
+    margin-bottom: 5px;
+  }
+
+  .how-works__item {
+    padding: 5px;
+  }
+  .top {
+    margin-bottom: 5px;
+  }
+
+  .why-us {
+    padding: 20px 0 35px 0;
+  }
+
+  .title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .info_item {
+    font-size: 12px;
+  }
+  .info_item {
+    margin-bottom: 20px;
+  }
+  .info_item-title {
+    margin-bottom: 5px;
+  }
+
+  .why-us__title {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+
+  .doublecard {
+    column-gap: 5px;
+    flex-direction: column;
+  }
+
+  .why-us__reasons,
+  .why-us-reasons {
+    padding: 5px;
+    width: 100%;
+  }
+  .reason {
+    column-gap: 10px;
+  }
+
+  .reason-image {
+    height: 100%;
+  }
+}
+
+@media (max-width: 320px) {
+  .how-works__container {
+    padding: 20px 0;
+  }
+
+  .how-works__item-text {
+    font-size: 16px;
+  }
+  .main__title {
+    font-size: 10px;
+    margin: 5px 0px 0px 20px;
+  }
+
+  .why-us {
+    padding: 10px 0 20px 0;
+  }
+
+  .title {
+    font-size: 14px;
+  }
+  .info_item {
+    font-size: 13px;
+  }
+  .info_item {
+    margin-bottom: 10px;
+  }
+
+  .why-us__title {
+    font-size: 11px;
+  }
 }
 </style>

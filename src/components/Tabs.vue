@@ -95,4 +95,16 @@ export default {
   color: #000;
   border-bottom: 3px solid black;
 }
+
+@media (max-width: 425px) {
+  .tabs {
+    display: flex;
+    justify-content: center;
+    -moz-column-gap: 80px;
+    flex-direction: column;
+    column-gap: 10px;
+    row-gap: 10px;
+    align-items: center;
+  }
+}
 </style>

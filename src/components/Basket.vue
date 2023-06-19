@@ -171,9 +171,6 @@ export default {
 
 <style scoped>
 .basket__container {
-  width: 1200px;
-}
-.basket__container {
   width: 900px;
   margin: 0 auto;
   padding: 50px 0;
@@ -188,7 +185,7 @@ export default {
   padding: 90px 0px 150px 0px;
   flex-direction: column;
   align-items: center;
-  width: 900px;
+  height: 60vh;
   margin: 0 auto;
 }
 
@@ -448,5 +445,343 @@ export default {
 
 .main-value {
   color: #a2163f;
+}
+
+@media (max-width: 1024px) {
+  .basket__container {
+    padding: 40px 0;
+  }
+
+  .none-basket {
+    padding: 80px 0px 130px 0px;
+  }
+
+  .none-title {
+    margin: 10px 0 20px 0px;
+  }
+
+  .info {
+    font-size: 13px;
+    margin-bottom: 10px;
+  }
+  .header {
+    padding: 10px 0;
+    background-color: #f7f8f9;
+    display: flex;
+    border: 1px solid #d3d7d9;
+    border-bottom: none;
+  }
+  .header__item {
+    font-weight: 700;
+    padding: 5px 20px;
+  }
+
+  .header__item:first-child {
+    width: 405px;
+  }
+
+  .header__item:nth-child(2) {
+    width: 140px;
+  }
+
+  .header__item:nth-child(3) {
+    width: 140px;
+  }
+
+  .book {
+    align-items: center;
+    padding: 20px;
+    border: 0.5px solid #cfd3d5;
+    display: flex;
+  }
+  .book-link {
+    margin-right: 20px;
+  }
+  .book__image {
+    width: 59px;
+    height: 96px;
+  }
+
+  .book__title {
+    font-weight: 700;
+    font-size: 15px;
+    width: 320px;
+  }
+  .book__author {
+    margin-top: 5px;
+    color: #9b9b9b;
+    font-size: 15px;
+  }
+  .book-price {
+    font-weight: 700;
+    width: 140px;
+    color: #a2163f;
+  }
+
+  .book-counter {
+    display: flex;
+    align-items: center;
+  }
+  .amount {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid #eaebec;
+    width: 50px;
+    height: 50px;
+    text-align: center;
+    transition: 0.2s ease-in-out;
+    outline: none;
+  }
+
+  .amount:hover {
+    border: 1px solid #a2163f;
+  }
+  .amount:focus {
+    border: 1px solid #a2163f;
+  }
+  .plus,
+  .minus {
+    width: 25px;
+    height: 25px;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 16px 16px;
+    border-right: 1px solid #eaebec;
+    cursor: pointer;
+    transition: 0.2s ease;
+  }
+
+  .plus {
+    background-image: url("../assets/icons/plus.png");
+    border-top: 1px solid #eaebec;
+    border-right: 1px solid #eaebec;
+    border-bottom: 0.5px solid #eaebec;
+  }
+  .minus {
+    background-image: url("../assets/icons/minus-b.png");
+    border-top: 0.5px solid #eaebec;
+    border-bottom: 1px solid #eaebec;
+  }
+
+  .minus:hover,
+  .plus:hover {
+    border: 1px solid #a2163f;
+  }
+
+  .btns {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    row-gap: 10px;
+  }
+
+  .trash,
+  .heart {
+    cursor: pointer;
+    padding: 10px;
+    transition: 0.2s ease-in-out;
+    font-size: 20px;
+  }
+
+  .trash:hover {
+    background-color: #000;
+    color: #fff;
+  }
+  .heart:hover {
+    background-color: black;
+    color: red;
+  }
+
+  .added {
+    color: #a2163f;
+  }
+
+  .basket-footer {
+    display: flex;
+    padding: 25px 0;
+    justify-content: center;
+    border: 1px solid #cfd3d5;
+    border-top: none;
+  }
+  .left {
+    padding: 0px 50px 0px 30px;
+  }
+  .promocode {
+    margin-bottom: 80px;
+  }
+  .promocode__input {
+    width: 222px;
+    padding: 9px 15px;
+    border: 1px solid #cfd3d5;
+    border-right: none;
+    font-size: 16px;
+    outline: none;
+    transition: 0.2s ease-in-out;
+  }
+
+  .promocode__input:hover {
+    border: 1px solid black;
+  }
+  .promocode___btn {
+    text-transform: uppercase;
+    color: #a2163f;
+    border: 1px solid #a2163f;
+    background-color: #fff;
+    padding: 11px 20px;
+    cursor: pointer;
+  }
+  .back {
+    text-transform: uppercase;
+    color: #a2163f;
+    font-size: 15px;
+    cursor: pointer;
+    text-decoration: none;
+    cursor: pointer;
+  }
+
+  .back::before {
+    content: "";
+    background-image: url("../assets/icons/arrow-left.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    width: 20px;
+    display: inline-block;
+    height: 12px;
+    margin-right: 5px;
+  }
+  .right {
+    width: 50%;
+    padding: 0px 50px 0px 30px;
+  }
+  .order-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 20px;
+  }
+  .order-info__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .key {
+    font-size: 15px;
+  }
+  .main-key {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .value {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .buy {
+    background-color: #a2163f;
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+}
+
+@media (max-width: 480px) {
+  .basket__container {
+    padding: 30px 0;
+  }
+
+  .none-basket {
+    padding: 60px 0px 100px 0px;
+  }
+
+  .none-title {
+    margin: 5px 0 15px 0px;
+  }
+
+  .info {
+    font-size: 11px;
+    margin-bottom: 5px;
+  }
+  .header {
+    padding: 5px 0;
+  }
+  .header__item {
+    padding: 5px 15px;
+  }
+
+  .book {
+    padding: 15px;
+  }
+  .book-link {
+    margin-right: 15px;
+  }
+
+  .book__title {
+    font-size: 12px;
+  }
+  .book__author {
+    font-size: 12px;
+  }
+
+  .promocode__input {
+    padding: 9px 10px;
+  }
+
+  .back::before {
+    content: "";
+    background-image: url("../assets/icons/arrow-left.png");
+    background-repeat: no-repeat;
+    background-position: left center;
+    background-size: cover;
+    width: 20px;
+    display: inline-block;
+    height: 12px;
+    margin-right: 5px;
+  }
+  .right {
+    width: 50%;
+    padding: 0px 50px 0px 30px;
+  }
+  .order-info {
+    display: flex;
+    flex-direction: column;
+    row-gap: 10px;
+    margin-bottom: 20px;
+  }
+  .order-info__item {
+    display: flex;
+    justify-content: space-between;
+  }
+  .key {
+    font-size: 15px;
+  }
+  .main-key {
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .value {
+    font-weight: 700;
+    font-size: 15px;
+  }
+  .buy {
+    background-color: #a2163f;
+    color: #fff;
+    border: none;
+    padding: 15px 35px;
+    text-transform: uppercase;
+    font-size: 15px;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+  }
+
+  .none-title {
+    font-size: 20px;
+  }
 }
 </style>

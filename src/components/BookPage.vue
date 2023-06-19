@@ -2,7 +2,7 @@
   <div class="book">
     <div class="book_container">
       <div class="left">
-        <img class="book_image" :src="require(`../${book.image}`)" />
+        <img class="book_image" :src="require(`../${currentBook.image}`)" />
         <div
           class="characteristics"
           :class="{
@@ -51,34 +51,34 @@
         </div>
       </div>
       <div class="right">
-        <div class="title">{{ book.title }}</div>
+        <div class="title">{{ currentBook.title }}</div>
         <div class="right-flex">
           <div class="right__text">
-            <div class="author">{{ book.author }}</div>
+            <div class="author">{{ currentBook.author }}</div>
             <div class="pereplet">
-              Мягкий переплет<br /><b>{{ book.price }}</b>
+              Мягкий переплет<br /><b>{{ currentBook.price }}</b>
             </div>
           </div>
           <div class="right__delivery">
             <div class="book_delivery">
-              <div class="book_delivery-price">{{ book.price }}</div>
+              <div class="book_delivery-price">{{ currentBook.price }}</div>
               <div class="instock">В наличии</div>
               <div class="btns">
                 <div
                   class="to-card"
-                  v-if="!includes(book.id, false)"
-                  @click="addToBasket(book)"
+                  v-if="!includes(currentBook.id, false)"
+                  @click="addToBasket(currentBook)"
                 >
                   В корзину
                 </div>
                 <div v-else class="buy" @click="$router.push('/basket')">
                   оформить
                 </div>
-                <div class="to-favourite" @click="addToFavourites(book)">
+                <div class="to-favourite" @click="addToFavourites(currentBook)">
                   <i
                     class="fa-solid fa-heart heart"
                     :class="{
-                      added: includes(book.id),
+                      added: includes(currentBook.id),
                     }"
                   ></i>
                 </div>
@@ -129,6 +129,33 @@ export default {
       }
     });
   },
+  updated() {
+    let bookId = this.$route.params.bookId;
+    let categoryName = this.$route.params.catalogName;
+    console.log("i am created");
+    this.getAllBooks.forEach((item) => {
+      if (item.category.toUpperCase() === categoryName.toUpperCase()) {
+        if (item.subcategories) {
+          item.subcategories.forEach((sc) => {
+            sc.catalog.forEach((book) => {
+              if (book.id === bookId) {
+                this.book = book;
+                localStorage.setItem("book", JSON.stringify(book));
+                console.log(book);
+              }
+            });
+          });
+        }
+        item.catalog.forEach((book) => {
+          if (book.id === bookId) {
+            this.book = book;
+            localStorage.setItem("book", JSON.stringify(book));
+          }
+        });
+      }
+    });
+    console.log("i am updated");
+  },
   data() {
     return {
       book: null || JSON.parse(localStorage.getItem("book")),
@@ -137,6 +164,20 @@ export default {
   },
   computed: {
     ...mapGetters(["getAllBooks", "getFavourites", "getBasket"]),
+    currentBook() {
+      let bookId = this.$route.params.bookId;
+      // let categoryName = this.$route.params.catalogName;
+      let found = {};
+      this.getAllBooks.forEach((item) => {
+        item.catalog.forEach((book) => {
+          if (book.id === bookId) {
+            found = book;
+          }
+        });
+      });
+
+      return found;
+    },
   },
   methods: {
     ...mapActions(["callBasketUpdation", "callFavouritesUpdation"]),
@@ -201,7 +242,6 @@ export default {
 .book_container {
   padding: 50px 0;
   margin: 0 auto;
-  width: 1200px;
   display: flex;
 }
 

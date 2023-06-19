@@ -95,9 +95,12 @@
           class="book"
           @mouseenter="hoveredProduct = book"
           @mouseleave="hoveredProduct = {}"
-          v-for="book in filteredBooks"
+          v-for="(book, idx) in filteredBooks"
           :key="book.title"
           @click="goToBookPage(book)"
+          :class="{
+            bordered: idx === books.length - 1,
+          }"
         >
           <div class="book-link">
             <img :src="require(`../${book.image}`)" class="book__image" />
@@ -415,8 +418,7 @@ export default {
   margin: 35px 0;
 }
 .category-list {
-  width: 1200px;
-  margin: 0 auto;
+  margin-left: auto;
 }
 
 .btns {
@@ -466,6 +468,7 @@ export default {
   justify-content: flex-start;
   flex-wrap: wrap;
   margin-bottom: 50px;
+  justify-content: center;
 }
 
 .filter {
@@ -793,6 +796,10 @@ export default {
   transform: rotate(330deg);
   animation-delay: 0s;
 }
+
+.bordered {
+  border-right: 1px solid red;
+}
 @keyframes lds-spinner {
   0% {
     opacity: 1;
@@ -830,5 +837,82 @@ input[type="range"]::-webkit-slider-thumb {
   border-radius: 50%;
   height: 14px;
   background-color: #a62749;
+}
+.books-list {
+  width: 75%;
+  margin-left: auto;
+}
+
+.book {
+  width: 25%;
+}
+@media (max-width: 1440px) {
+  .subcategory__container {
+    margin-top: 200px;
+    margin-left: 12px;
+  }
+
+  .book {
+    width: 25%;
+  }
+
+  .category__title {
+    font-size: 26px;
+  }
+}
+
+@media (max-width: 900px) {
+  .book {
+    width: 33.3%;
+  }
+
+  .category__title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 820px) {
+  .book {
+    width: 50%;
+  }
+
+  .category__title {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 670px) {
+  .filter__title {
+    font-size: 12px;
+  }
+
+  .select-value {
+    font-size: 12px;
+  }
+  .books-list {
+    justify-content: center;
+    margin-top: 400px;
+    width: 100%;
+  }
+  .book {
+    width: 50%;
+  }
+
+  .category__title {
+    font-size: 20px;
+  }
+
+  .subcategory__container {
+    margin-top: 228px;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    top: 30px;
+  }
+}
+
+@media (max-width: 400px) {
+  .book {
+    width: 100%;
+  }
 }
 </style>

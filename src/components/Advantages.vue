@@ -36,7 +36,6 @@ export default {
 .advantages-list {
   display: flex;
   margin: 0 auto;
-  width: 1200px;
   justify-content: space-between;
 }
 .advantage {
@@ -51,5 +50,63 @@ export default {
   font-size: 15px;
   width: 215px;
   margin-left: 15px;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    padding: 25px;
+  }
+  .advantages-list {
+    justify-content: space-between;
+  }
+  .advantage {
+    display: flex;
+    align-items: center;
+  }
+
+  .advantage-title {
+    padding: 5px;
+    font-size: 12px;
+    width: 190px;
+    margin-left: 10px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 20px;
+  }
+  .advantages-list {
+    justify-content: space-around;
+  }
+  .advantage {
+    display: flex;
+    align-items: center;
+  }
+
+  .advantage-title {
+    padding: 5px;
+    font-size: 10px;
+    width: 170px;
+    margin-left: 5px;
+  }
+}
+
+@media (max-width: 480px) {
+  .advantages-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    row-gap: 30px;
+  }
+}
+
+@media (max-width: 780px) {
+  .advantage {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
 }
 </style>

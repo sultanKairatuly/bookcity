@@ -12,13 +12,16 @@
     </div>
     <div class="slider">
       <Swiper
+        v-if="!isMobile"
         class="products__slider"
         navigation
+        :slides-per-view="1"
         :pagination="{
           el: '.swiper-pagination',
           clickable: true,
         }"
         :modules="modules"
+        style="width: 100%"
       >
         <swiper-slide
           class="product__slide"
@@ -29,7 +32,110 @@
             class="product"
             @mouseenter="hoveredProduct = product"
             @mouseleave="hoveredProduct = {}"
+            @click="handleProductClick(product)"
             v-for="product in slide"
+            :key="product.title"
+            :class="{
+              hover: product.id === hoveredProduct?.id,
+            }"
+          >
+            <div class="product-link">
+              <img
+                :src="require(`../${product.image}`)"
+                class="product__image"
+              />
+            </div>
+            <div
+              class="product__wrapper"
+              :class="{
+                active: product.id === hoveredProduct?.id,
+              }"
+            >
+              <div class="product-link">
+                <img
+                  :src="require(`../${product.image}`)"
+                  class="product__image"
+                />
+              </div>
+              <div
+                class="product-info"
+                v-if="hoveredProduct?.id === product.id"
+              >
+                <div class="product__title">{{ product.title }}</div>
+                <div class="product__author">{{ product.author }}</div>
+                <div class="product__price">{{ product.price }}</div>
+              </div>
+            </div>
+          </div>
+        </swiper-slide>
+      </Swiper>
+      <Swiper
+        v-else
+        class="products__slider mobile-slider"
+        navigation
+        :slides-per-view="1"
+        :pagination="{
+          el: '.swiper-pagination',
+          clickable: true,
+        }"
+        :modules="modules"
+      >
+        <swiper-slide
+          class="product__slide mobile-slide"
+          v-for="slide in products"
+          :key="slide"
+        >
+          <div
+            class="product"
+            @mouseenter="hoveredProduct = product"
+            @mouseleave="hoveredProduct = {}"
+            @click="handleProductClick(product)"
+            v-for="product in slide.slice(0, 4)"
+            :key="product.title"
+            :class="{
+              hover: product.id === hoveredProduct?.id,
+            }"
+          >
+            <div class="product-link">
+              <img
+                :src="require(`../${product.image}`)"
+                class="product__image"
+              />
+            </div>
+            <div
+              class="product__wrapper"
+              :class="{
+                active: product.id === hoveredProduct?.id,
+              }"
+            >
+              <div class="product-link">
+                <img
+                  :src="require(`../${product.image}`)"
+                  class="product__image"
+                />
+              </div>
+              <div
+                class="product-info"
+                v-if="hoveredProduct?.id === product.id"
+              >
+                <div class="product__title">{{ product.title }}</div>
+                <div class="product__author">{{ product.author }}</div>
+                <div class="product__price">{{ product.price }}</div>
+              </div>
+            </div>
+          </div>
+        </swiper-slide>
+        <swiper-slide
+          class="product__slide mobile-slide"
+          v-for="slide in products"
+          :key="slide"
+        >
+          <div
+            class="product"
+            @mouseenter="hoveredProduct = product"
+            @mouseleave="hoveredProduct = {}"
+            @click="handleProductClick(product)"
+            v-for="product in slide.slice(4, 8)"
             :key="product.title"
             :class="{
               hover: product.id === hoveredProduct?.id,
@@ -94,9 +200,20 @@ export default {
       required: true,
       default: () => [],
     },
+    category: {
+      type: String,
+      required: false,
+      default: "new",
+    },
+  },
+  created() {
+    window.addEventListener("resize", () => {
+      this.windowSize = window.innerWidth;
+    });
   },
   data() {
     return {
+      windowSize: window.innerWidth,
       main: this.products[0][2],
       modules: [Navigation, Pagination],
       hoveredProduct: {},
@@ -107,6 +224,14 @@ export default {
       const priceArray = price.split("");
       const cuttedPriceArray = priceArray.slice(1);
       return `${priceArray[0]} ${cuttedPriceArray.join("")}`;
+    },
+    handleProductClick(product) {
+      this.$router.push(`/${this.category}/${product.id}`);
+    },
+  },
+  computed: {
+    isMobile() {
+      return this.windowSize <= 450;
     },
   },
 };
@@ -202,6 +327,11 @@ export default {
   text-align: center;
 }
 
+.mobile-slide {
+  display: flex;
+  flex-direction: column;
+}
+
 .slider {
   position: relative;
   height: 550px;
@@ -273,7 +403,7 @@ export default {
   display: none;
   top: 6px;
   cursor: pointer;
-  left: 14px;
+  left: 0px;
   box-shadow: 0px 0px 19px 1px rgba(0, 0, 0, 0.2);
   background-color: #fff;
   box-sizing: border-box;
@@ -288,5 +418,228 @@ export default {
 .active {
   display: block;
   z-index: 300;
+}
+
+@media (max-width: 1440px) {
+  .product-link {
+    width: 140px;
+  }
+
+  .swiper-pagination {
+    column-gap: 10px;
+  }
+
+  .link-all {
+    font-size: 13px;
+  }
+
+  .link-all::after {
+    content: "";
+    width: 22px;
+    height: 6px;
+  }
+
+  .swiper-bottom-row {
+    padding-right: 30px;
+    margin-top: -60px;
+  }
+
+  .billboard {
+    margin-top: 20px;
+    width: 350px;
+  }
+
+  .billboard__title {
+    font-size: 18px;
+    margin: 10px 0 16px;
+  }
+  .billboard__image {
+    width: 300px;
+    height: 280px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .billboard__price {
+    font-size: 13px;
+  }
+
+  .product__title {
+    font-size: 10px;
+    width: 150px;
+    margin-top: 5px;
+  }
+
+  .product__author {
+    font-size: 9px;
+  }
+
+  .product__price {
+    font-size: 13px;
+  }
+
+  .product {
+    padding: 10px 10px 0 10px;
+    margin-bottom: 10px;
+  }
+
+  .product__wrapper {
+    padding-top: 5px;
+    padding-bottom: 10px;
+  }
+
+  .hover {
+    padding: 10px 15px 0px 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .slider {
+    width: 95%;
+  }
+  .product-link {
+    width: 120px;
+  }
+  .swiper-pagination {
+    column-gap: 5px;
+  }
+  .link-all {
+    font-size: 10px;
+  }
+  .link-all::after {
+    content: "";
+    width: 20px;
+    height: 4px;
+  }
+
+  .swiper-pagination {
+    left: 55px;
+  }
+
+  .swiper-bottom-row {
+    padding-right: 25px;
+    margin-top: -105px;
+  }
+
+  .billboard {
+    margin-top: 15px;
+    width: 320px;
+    padding: 10px;
+  }
+
+  .billboard__title {
+    font-size: 16px;
+    margin: 5px 0 8px;
+  }
+  .billboard__image {
+    width: 280px;
+    height: 260px;
+  }
+  .billboard__price {
+    font-size: 11px;
+  }
+
+  .product__title {
+    font-size: 8px;
+    width: 120px;
+  }
+
+  .product__price {
+    font-size: 11px;
+  }
+
+  .product {
+    padding: 5px 5px 0 5px;
+    margin-bottom: 5px;
+  }
+
+  .product__wrapper {
+    padding-bottom: 5px;
+  }
+
+  .hover {
+    padding: 5px 10px 0px 10px;
+  }
+}
+
+@media (max-width: 768px) {
+  .slider {
+    width: 95%;
+  }
+  .product-link {
+    width: 100px;
+  }
+  .swiper-pagination {
+    column-gap: 5px;
+  }
+  .link-all {
+    font-size: 10px;
+  }
+  .link-all::after {
+    content: "";
+    width: 20px;
+    height: 4px;
+  }
+
+  .swiper-pagination {
+    left: 55px;
+  }
+
+  .swiper-bottom-row {
+    padding-right: 25px;
+    margin-top: -105px;
+  }
+
+  .billboard {
+    width: 170px;
+    padding: 5px;
+    margin: 10px auto;
+  }
+
+  .billboard__title {
+    font-size: 14px;
+  }
+  .billboard__image {
+    width: 170px;
+    height: 260px;
+  }
+  .billboard__price {
+    font-size: 11px;
+  }
+
+  .product__title {
+    font-size: 8px;
+    width: 120px;
+  }
+
+  .product__price {
+    font-size: 11px;
+  }
+
+  .content {
+    flex-direction: column;
+  }
+
+  .content {
+    height: 850px;
+  }
+
+  .product {
+    padding: 5px 5px 0 5px;
+    margin-bottom: 5px;
+    width: 25%;
+  }
+
+  .product__wrapper {
+    padding-bottom: 5px;
+  }
+
+  .hover {
+    padding: 5px 10px 0px 10px;
+  }
+
+  .swiper {
+    width: 100%;
+  }
 }
 </style>

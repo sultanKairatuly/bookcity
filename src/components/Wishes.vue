@@ -60,4 +60,37 @@ export default {
   font-size: 14px;
   text-transform: uppercase;
 }
+
+@media (max-width: 1024px) {
+  .container {
+    padding: 60px 0;
+  }
+
+  .assortment__item {
+    width: 140px;
+  }
+
+  .assortment__item-title {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .assortment__item-image {
+    width: 100%;
+  }
+}
+
+@media (max-width: 480px) {
+  .assortment__item-image {
+    width: 150px;
+  }
+
+  .assortment__item-title {
+    font-size: 10px;
+  }
+
+  .assortment__slider {
+    overflow: scroll;
+  }
+}
 </style>

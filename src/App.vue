@@ -31,4 +31,11 @@ li {
   padding: 0;
   box-sizing: border-box;
 }
+
+.app {
+  max-width: 1200px;
+  position: relative;
+  margin: 0 auto;
+  overflow-x: hidden;
+}
 </style>

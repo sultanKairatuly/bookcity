@@ -84,4 +84,16 @@ export default {
   margin-bottom: 40px;
   text-transform: uppercase;
 }
+
+@media (max-width: 1440px) {
+  .title {
+    font-size: 24px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .title {
+    font-size: 20px;
+  }
+}
 </style>

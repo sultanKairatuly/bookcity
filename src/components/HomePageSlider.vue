@@ -12,7 +12,12 @@
           el: '.home-page-swiper-pagination',
           clickable: true,
         }"
-        style="width: 802px; height: 380px; margin: 0; padding: 0"
+        :style="{
+          width: slideWidth,
+          height: slideHeight,
+          margin: swiperMargin,
+          padding: 0,
+        }"
         :modules="modules"
       >
         <SwiperSlide v-for="slide in slides" :key="slide" class="customSlide">
@@ -42,8 +47,14 @@ SwiperCore.use(Navigation, Pagination);
 
 export default {
   name: "HomePageSlider",
+  created() {
+    window.addEventListener("resize", () => {
+      this.windowSize = window.innerWidth;
+    });
+  },
   data() {
     return {
+      windowSize: window.innerWidth,
       slides: [
         "/new-year-books.jpg",
         "/december-sales.jpg",
@@ -53,13 +64,35 @@ export default {
       modules: [Pagination, Navigation, Autoplay],
     };
   },
+  computed: {
+    slideWidth() {
+      if (this.windowSize <= 1024) {
+        return "500px";
+      } else {
+        return "800px";
+      }
+    },
+    slideHeight() {
+      if (this.windowSize <= 1024) {
+        return "200px";
+      } else {
+        return "375px";
+      }
+    },
+    swiperMargin() {
+      if (this.windowSize <= 450) {
+        return "-120px";
+      } else {
+        return "0px";
+      }
+    },
+  },
   components: { Swiper, SwiperSlide },
 };
 </script>
 
 <style>
 .home-page-slider {
-  width: 1200px;
   margin: 0 auto;
   display: flex;
   margin-top: 40px;
@@ -154,5 +187,140 @@ export default {
 
 .swiper-button-prev::after {
   content: "";
+}
+
+@media (max-width: 1440px) {
+  .home-page-slider {
+    margin-top: 35px;
+    width: 1000px;
+  }
+
+  .swiper-wrapper {
+    width: 750px;
+    height: 320px;
+    column-gap: 10px;
+  }
+
+  .sales-image {
+    height: 320px;
+  }
+
+  .slide-image {
+    width: 750px;
+  }
+
+  .home-page-swiper-pagination {
+    column-gap: 5px;
+    bottom: 0px;
+  }
+
+  .swiper-pagination-bullet {
+    width: 7px;
+    height: 7px;
+  }
+
+  .swiper-button-next {
+    height: 35px;
+    width: 35px;
+  }
+
+  .swiper-button-prev {
+    height: 35px;
+    width: 35px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .home-page-slider {
+    margin-top: 25px;
+    width: 800px;
+  }
+
+  .swiper-wrapper {
+    width: 50px;
+    height: 240px;
+  }
+
+  .sales-image {
+    height: 250px;
+    margin-left: -300px;
+  }
+
+  .swiper-slide {
+    width: 100px;
+  }
+
+  .slide-image {
+    width: 500px;
+  }
+
+  .swiper-button-next {
+    height: 25px;
+    width: 25px;
+  }
+
+  .swiper-button-prev {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media (max-width: 768px) {
+  .home-page-slider {
+    margin-top: 20px;
+    width: 800px;
+    padding: 20px 0;
+  }
+
+  .home-page-swiper-pagination {
+    bottom: 10px;
+  }
+
+  .swiper-wrapper {
+    width: 40px;
+    height: 200px;
+  }
+
+  .sales-image {
+    height: 230px;
+    margin-left: -300px;
+  }
+
+  .swiper-slide {
+    width: 100px;
+  }
+
+  .slide-image {
+    width: 500px;
+  }
+
+  .swiper-button-next {
+    height: 25px;
+    width: 25px;
+  }
+
+  .swiper-button-prev {
+    height: 25px;
+    width: 25px;
+  }
+}
+
+@media (max-width: 450px) {
+  .swiper-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .swiper {
+    width: 450px;
+    /* margin: -83px; */
+    padding: 0px;
+  }
+
+  .home-page-swiper-pagination {
+    bottom: 15px;
+    left: 5px;
+  }
 }
 </style>

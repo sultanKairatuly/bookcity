@@ -51,4 +51,32 @@ export default {
   background-position: center;
   background-size: cover;
 }
+
+@media (max-width: 1024px) {
+  .banner__title {
+    font-size: 28px;
+    padding: 25px;
+  }
+}
+
+@media (max-width: 720px) {
+  .banner__title {
+    font-size: 26px;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .banner__title {
+    font-size: 24px;
+    padding: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .banner__title {
+    font-size: 22px;
+    padding: 10px;
+  }
+}
 </style>

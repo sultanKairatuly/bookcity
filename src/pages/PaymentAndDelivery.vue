@@ -195,7 +195,6 @@ export default {
   margin-bottom: 120px;
 }
 .payment-delivery {
-  width: 1200px;
   margin: 0 auto;
 }
 
@@ -306,5 +305,256 @@ export default {
 .extra-info {
   font-size: 13px;
   margin: 20px;
+}
+
+@media (max-width: 1440px) {
+  .extra-text {
+    font-size: 14px;
+  }
+
+  .extra {
+    padding: 25px;
+  }
+  .payment:not(:first-child) {
+    margin-left: 15px;
+  }
+
+  .note {
+    margin-top: 70px;
+  }
+
+  .flex {
+    margin-bottom: 20px;
+  }
+
+  .number-image {
+    margin-right: 25px;
+  }
+
+  .car::before {
+    content: "";
+    padding-bottom: 15px;
+  }
+
+  .notebook::before {
+    content: "";
+    padding-bottom: 25px;
+  }
+
+  .coins::before {
+    content: "";
+    padding-bottom: 15px;
+  }
+  .infocards {
+    row-gap: 50px;
+  }
+
+  .infocard__title {
+    font-weight: 500;
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+  .infocard__item-inner-text {
+    font-size: 14px;
+  }
+  .bold {
+    font-size: 15px;
+  }
+
+  .infocard__item-title {
+    padding: 10px 25px;
+  }
+  .infocard__item-inner {
+    padding: 25px;
+  }
+
+  .extra-info {
+    font-size: 11px;
+    margin: 15px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .infocard__items {
+    justify-content: center;
+    column-gap: 40px;
+  }
+  .infocard__item {
+    width: 45%;
+  }
+
+  .extra-text {
+    font-size: 14px;
+  }
+  .extra {
+    padding: 20px;
+  }
+  .payment:not(:first-child) {
+    margin-left: 10px;
+  }
+
+  .note {
+    margin-top: 60px;
+  }
+
+  .flex {
+    margin-bottom: 10px;
+  }
+
+  .number-image {
+    margin-right: 20px;
+  }
+
+  .car::before {
+    content: "";
+    padding-bottom: 10px;
+  }
+
+  .notebook::before {
+    content: "";
+    padding-bottom: 20px;
+  }
+
+  .coins::before {
+    content: "";
+    padding-bottom: 10px;
+  }
+  .infocard__title {
+    font-size: 18px;
+    margin-bottom: 10px;
+  }
+  .infocard__item-inner-text {
+    font-size: 12px;
+  }
+  .bold {
+    font-size: 12px;
+  }
+
+  .infocard__item-title {
+    padding: 5px 20px;
+  }
+  .infocard__item-inner {
+    padding: 20px;
+  }
+
+  .extra-info {
+    font-size: 11px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 425px) {
+  .infocard__items {
+    justify-content: center;
+    row-gap: 40px;
+    flex-direction: column;
+  }
+  .infocard__item {
+    width: 95%;
+  }
+
+  .extra-text {
+    font-size: 12px;
+  }
+  .extra {
+    padding: 15px;
+  }
+  .payment:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  .note {
+    margin-top: 60px;
+  }
+
+  .flex {
+    margin-bottom: 5px;
+  }
+
+  .number-image {
+    margin-right: 15px;
+  }
+
+  .car::before {
+    content: "";
+    padding-bottom: 5px;
+  }
+
+  .notebook::before {
+    content: "";
+    padding-bottom: 15px;
+  }
+
+  .coins::before {
+    content: "";
+    padding-bottom: 5px;
+  }
+  .infocard__title {
+    font-size: 16px;
+    margin-bottom: 5px;
+  }
+  .infocard__item-inner-text {
+    font-size: 12px;
+  }
+  .bold {
+    font-size: 12px;
+  }
+
+  .infocard__item-title {
+    padding: 5px 15px;
+  }
+  .infocard__item-inner {
+    padding: 15px;
+  }
+
+  .extra-info {
+    font-size: 13px;
+    margin: 10px;
+  }
+}
+
+@media (max-width: 350px) {
+  .extra {
+    padding: 10px;
+  }
+  .payment:not(:first-child) {
+    margin-left: 5px;
+  }
+
+  .note {
+    margin-top: 50px;
+  }
+
+  .number-image {
+    margin-right: 5px;
+  }
+
+  .notebook::before {
+    content: "";
+    padding-bottom: 5px;
+  }
+
+  .infocard__title {
+    font-size: 14px;
+    margin-bottom: 5px;
+  }
+  .infocard__item-inner-text {
+    font-size: 12px;
+  }
+  .bold {
+    font-size: 12px;
+  }
+
+  .infocard__item-title {
+    padding: 5px 5px;
+  }
+  .infocard__item-inner {
+    padding: 5px;
+  }
+
+  .extra-info {
+    font-size: 13px;
+    margin: 5px;
+  }
 }
 </style>

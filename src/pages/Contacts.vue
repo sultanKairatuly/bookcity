@@ -112,7 +112,6 @@ export default {
 
 <style scoped>
 .contacts {
-  width: 1200px;
   margin: 0 auto;
   display: flex;
   justify-content: space-between;
@@ -213,5 +212,129 @@ export default {
 
 .focused {
   border: 1px solid #000;
+}
+
+@media (max-width: 1024px) {
+  .contacts {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+  }
+
+  .send-btn {
+    width: 200px;
+  }
+
+  .marginRight {
+    margin-right: 20px;
+  }
+
+  .margin {
+    margin-bottom: 40px;
+  }
+  .contacts__item {
+    padding: 10px;
+    width: 45%;
+  }
+
+  .phone::before {
+    content: "";
+    padding-bottom: 15px;
+    width: 24px;
+    height: 24px;
+  }
+  .contacts__item-title {
+    font-size: 16px;
+    letter-spacing: 3px;
+  }
+  .contacts__item-text {
+    margin-bottom: 20px;
+    font-size: 13px;
+  }
+  .label__text {
+    margin-bottom: 5px;
+    font-size: 12px;
+  }
+
+  .label__input {
+    padding: 4px 10px;
+    height: 44px;
+    width: 220px;
+  }
+  .label__textarea {
+    padding: 4px 10px;
+    width: 300px;
+  }
+}
+
+@media (max-width: 480px) {
+  .contacts {
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    column-gap: 50px;
+    flex-direction: column;
+  }
+
+  .send-btn {
+    width: 200px;
+  }
+
+  .marginRight {
+    margin-right: 20px;
+  }
+
+  .margin {
+    margin-bottom: 40px;
+  }
+
+  .contacts__item {
+    padding: 10px;
+    width: 100%;
+  }
+
+  .contacts__item-title {
+    font-size: 16px;
+    letter-spacing: 3px;
+    width: 100%;
+    text-align: center;
+  }
+  .contacts__item-text {
+    margin-bottom: 20px;
+    font-size: 15px;
+  }
+  .label__text {
+    margin-bottom: 5px;
+    font-size: 15px;
+  }
+}
+
+@media (max-width: 320px) {
+  .send-btn {
+    width: 180px;
+  }
+
+  .marginRight {
+    margin-right: 10px;
+  }
+
+  .margin {
+    margin-bottom: 20px;
+  }
+
+  .contacts__item {
+    padding: 5px;
+  }
+
+  .contacts__item-title {
+    font-size: 14px;
+  }
+  .contacts__item-text {
+    font-size: 13px;
+  }
+  .label__text {
+    font-size: 13px;
+  }
 }
 </style>
